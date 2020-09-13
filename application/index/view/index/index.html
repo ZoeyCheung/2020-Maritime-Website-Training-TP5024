@@ -39,11 +39,15 @@
                             <a class="nav-link" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Administrator Login</a>
+                            <a class="nav-link" href="__ROOT__/admin">Administrator Login</a>
                         </li>
                     </ul>
                     <div class="nav-login">
-                        <a href="__ROOT__/index/index/login">Login in</a> | <a href="__ROOT__/index/index/register">register</a>
+                        {if session('?nickname')}
+                        {:session('nickname')} | <a href="{:url('/index/index/logout')}">Login Out</a>
+                        {else}
+                        <a href="{:url('/index/index/login')}">Login In</a> | <a href="{:url('/index/index/register')}">Register</a>
+                        {/if}
                     </div>
                 </div>
             </nav>
